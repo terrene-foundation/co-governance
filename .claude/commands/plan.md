@@ -15,9 +15,9 @@ Create a structured governance action plan for the active project. This plan req
 
 ## Protocol
 
-1. **Read analysis outputs** from `01-research/`
+1. **Read analysis outputs** from `01-research/` AND **read `specs/_index.md` plus relevant spec files** for domain truth. **If `specs/_index.md` does not exist, STOP — return to `/analyze` to create specs. Do NOT create specs during /plan.** See `rules/specs-authority.md`.
 2. **Identify the constitutional basis** for the planned governance actions
-3. **Break the work into phases and tasks** with clear deliverables
+3. **Break the work into phases and tasks** with clear deliverables. Each task MUST reference which spec file(s) it implements (e.g., "Implements: specs/constitutional-basis.md §Entrenched Provisions").
 4. **Flag any tasks that require constitutional interpretation**
 5. **Present the plan for approval** - do NOT proceed without explicit officer approval
 
