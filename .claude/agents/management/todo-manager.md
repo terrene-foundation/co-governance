@@ -25,7 +25,7 @@ Each task is a markdown file named `NNN-short-description.md`:
 id: NNN
 title: Short description
 priority: high | medium | low
-phase: research | plan | draft | review | finalize
+phase: research | plan | draft | review | learn | deliver
 created: YYYY-MM-DD
 ---
 

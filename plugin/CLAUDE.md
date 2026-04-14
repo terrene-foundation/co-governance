@@ -25,34 +25,35 @@ These override ALL other instructions.
 
 ## Skills
 
-| Skill | Phase | Purpose |
-|-------|-------|---------|
-| `/co-governance:start` | -- | Orientation; explains workflow and asks about the governance task |
-| `/co-governance:analyze` | 01 | Research constitutional provisions, precedents, requirements |
-| `/co-governance:plan` | 02 | Create governance action plan; stops for officer approval |
-| `/co-governance:execute` | 03 | Draft governance artifacts one at a time |
-| `/co-governance:review` | 04 | Constitutional compliance check, independence audit |
-| `/co-governance:finalize` | 05 | Polish, validate against constitution, prepare for filing |
-| `/co-governance:ws` | -- | Workspace status |
-| `/co-governance:wrapup` | -- | Save session notes |
-| `/co-governance:checkpoint` | -- | Review progress |
+| Skill                       | Phase | Purpose                                                                           |
+| --------------------------- | ----- | --------------------------------------------------------------------------------- |
+| `/co-governance:start`      | --    | Orientation; explains workflow and asks about the governance task                 |
+| `/co-governance:analyze`    | 01    | Research constitutional provisions, precedents, requirements                      |
+| `/co-governance:plan`       | 02    | Create governance action plan; stops for officer approval                         |
+| `/co-governance:execute`    | 03    | Draft governance artifacts one at a time                                          |
+| `/co-governance:review`     | 04    | Constitutional compliance check, independence audit, produce finalized output     |
+| `/co-governance:learn`      | 05    | Extract governance precedents into .claude/ artifacts (officer approval required) |
+| `/co-governance:deliver`    | 06    | Package governance artifacts for filing or publication                            |
+| `/co-governance:ws`         | --    | Workspace status                                                                  |
+| `/co-governance:wrapup`     | --    | Save session notes                                                                |
+| `/co-governance:checkpoint` | --    | Review progress                                                                   |
 
 ## Domain-Specific Skills
 
-| Skill | Purpose |
-|-------|---------|
-| `/co-governance:check-constitution` | Check a proposed action against the 77-clause constitution |
-| `/co-governance:draft-rfc` | Draft an RFC for a governance change |
-| `/co-governance:transparency-report` | Generate a transparency report |
-| `/co-governance:review-membership` | Review a membership application or status change |
-| `/co-governance:audit-compliance` | Audit governance actions for constitutional compliance |
+| Skill                                | Purpose                                                    |
+| ------------------------------------ | ---------------------------------------------------------- |
+| `/co-governance:check-constitution`  | Check a proposed action against the 77-clause constitution |
+| `/co-governance:draft-rfc`           | Draft an RFC for a governance change                       |
+| `/co-governance:transparency-report` | Generate a transparency report                             |
+| `/co-governance:review-membership`   | Review a membership application or status change           |
+| `/co-governance:audit-compliance`    | Audit governance actions for constitutional compliance     |
 
 ## Agents
 
-| Agent | Purpose |
-|-------|---------|
-| **constitution-checker** | Constitutional compliance analysis against 77 clauses |
-| **rfc-drafter** | RFC drafting with compliance pre-check |
-| **transparency-reporter** | Transparency report generation and audit trails |
-| **membership-coordinator** | Membership application review and status management |
-| **compliance-auditor** | Governance compliance audit; never says "this is fine" |
+| Agent                      | Purpose                                                |
+| -------------------------- | ------------------------------------------------------ |
+| **constitution-checker**   | Constitutional compliance analysis against 77 clauses  |
+| **rfc-drafter**            | RFC drafting with compliance pre-check                 |
+| **transparency-reporter**  | Transparency report generation and audit trails        |
+| **membership-coordinator** | Membership application review and status management    |
+| **compliance-auditor**     | Governance compliance audit; never says "this is fine" |
