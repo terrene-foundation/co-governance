@@ -17,6 +17,7 @@ Research and analyze the governance topic **$ARGUMENTS** thoroughly.
 5. **Research precedents** from previous governance decisions in the workspace journal
 6. **Identify regulatory requirements** (Singapore CLG, ACRA) if applicable
 7. **Document findings** in `01-research/`
+8. **Create `specs/`** (MUST — before vet) — see `rules/specs-authority.md`. Create `specs/_index.md` plus one spec file per major governance domain area (e.g., `constitutional-basis.md`, `regulatory-applicability.md`, `entrenched-constraints.md`). Each spec file MUST be detailed enough to be the authority on its topic. For each requirement in the brief, confirm a corresponding spec section exists — missing mappings are BLOCKING.
 
 ## Output
 
