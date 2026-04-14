@@ -140,11 +140,12 @@ When you discover a missing compliance check, governance record, control mapping
 
 ## Rules
 
-| Concern                          | Rule File                   | Scope  |
-| -------------------------------- | --------------------------- | ------ |
+| Concern                          | Rule File                    | Scope  |
+| -------------------------------- | ---------------------------- | ------ |
 | Governance + compliance integrity | `rules/domain-integrity.md` | Global |
 | Communication style              | `rules/communication.md`    | Global |
-| CC artifact quality              | `rules/cc-artifacts.md`     | Global |
+| CC artifact quality              | `rules/cc-artifacts.md`     | Scoped |
+| Specs authority                  | `rules/specs-authority.md`  | Scoped |
 | Journal trail                    | `rules/journal.md`          | Global |
 
 ## Workspace Structure
