@@ -33,11 +33,12 @@ cd co-governance
 claude
 ```
 
-Then type `/start`. The AI will orient you to the five-phase governance workflow and ask what governance task you are working on.
+Then type `/start`. The AI will orient you to the six-phase governance workflow and ask what governance task you are working on.
 
 ### Option B: Claude Desktop Cowork (Plugin)
 
 **What you need:**
+
 - Claude Desktop with Cowork support
 - A Claude Pro, Max, or Team subscription
 
@@ -61,8 +62,9 @@ Go to [github.com/terrene-foundation/co-governance](https://github.com/terrene-f
 ### What happens after `/start`
 
 The AI will:
+
 - Check for any active governance workspaces
-- Explain the five-phase governance workflow
+- Explain the six-phase governance workflow
 - List available governance-specific skills (constitutional checks, RFC drafting, transparency reporting, compliance auditing, membership review)
 - Ask what governance task you are working on
 - Recommend the appropriate next step
@@ -79,83 +81,84 @@ cp -r workspaces/_template workspaces/annual-report-2026
 
 ### Workflow Phases
 
-| Phase | CLI Command | Cowork Skill | Purpose |
-|-------|-------------|--------------|---------|
-| 01 Research | `/analyze` | `/co-governance:analyze` | Constitutional analysis, precedent review |
-| 02 Plan | `/plan` | `/co-governance:plan` | Governance action plan (officer approval gate) |
-| 03 Execute | `/execute` | `/co-governance:execute` | Draft governance artifacts one at a time |
-| 04 Review | `/review` | `/co-governance:review` | Constitutional compliance check, independence audit |
-| 05 Finalize | `/finalize` | `/co-governance:finalize` | Validate against constitution, prepare for filing |
+| Phase       | CLI Command | Cowork Skill             | Purpose                                                   |
+| ----------- | ----------- | ------------------------ | --------------------------------------------------------- |
+| 01 Research | `/analyze`  | `/co-governance:analyze` | Constitutional analysis, precedent review                 |
+| 02 Plan     | `/plan`     | `/co-governance:plan`    | Governance action plan (officer approval gate)            |
+| 03 Execute  | `/execute`  | `/co-governance:execute` | Draft governance artifacts one at a time                  |
+| 04 Review   | `/review`   | `/co-governance:review`  | Constitutional compliance check, produce finalized output |
+| 05 Learn    | `/learn`    | `/co-governance:learn`   | Extract governance precedents into .claude/ artifacts     |
+| 06 Deliver  | `/deliver`  | `/co-governance:deliver` | Package governance artifacts for filing or publication    |
 
 ### Governance-Specific
 
-| CLI Command | Cowork Skill | Purpose |
-|-------------|--------------|---------|
-| `/check-constitution` | `/co-governance:check-constitution` | Check an action against the 77-clause constitution |
-| `/draft-rfc` | `/co-governance:draft-rfc` | Draft an RFC for a governance change |
-| `/transparency-report` | `/co-governance:transparency-report` | Generate a transparency report |
-| `/audit-compliance` | `/co-governance:audit-compliance` | Audit governance actions for compliance |
-| `/review-membership` | `/co-governance:review-membership` | Review a membership application |
+| CLI Command            | Cowork Skill                         | Purpose                                            |
+| ---------------------- | ------------------------------------ | -------------------------------------------------- |
+| `/check-constitution`  | `/co-governance:check-constitution`  | Check an action against the 77-clause constitution |
+| `/draft-rfc`           | `/co-governance:draft-rfc`           | Draft an RFC for a governance change               |
+| `/transparency-report` | `/co-governance:transparency-report` | Generate a transparency report                     |
+| `/audit-compliance`    | `/co-governance:audit-compliance`    | Audit governance actions for compliance            |
+| `/review-membership`   | `/co-governance:review-membership`   | Review a membership application                    |
 
 ### Utility
 
-| CLI Command | Cowork Skill | Purpose |
-|-------------|--------------|---------|
-| `/ws` | `/co-governance:ws` | Workspace status dashboard |
-| `/wrapup` | `/co-governance:wrapup` | Save session notes for continuity |
-| `/checkpoint` | `/co-governance:checkpoint` | Review progress and learning |
-| `/start` | `/co-governance:start` | Orientation (first time or new session) |
+| CLI Command   | Cowork Skill                | Purpose                                 |
+| ------------- | --------------------------- | --------------------------------------- |
+| `/ws`         | `/co-governance:ws`         | Workspace status dashboard              |
+| `/wrapup`     | `/co-governance:wrapup`     | Save session notes for continuity       |
+| `/checkpoint` | `/co-governance:checkpoint` | Review progress and learning            |
+| `/start`      | `/co-governance:start`      | Orientation (first time or new session) |
 
 ## Agents
 
 ### Governance Specialists
 
-| Agent | Purpose |
-|-------|---------|
-| **constitution-checker** | Analyzes governance actions against 77 clauses and 11 entrenched provisions |
-| **rfc-drafter** | Drafts RFCs with constitutional compliance pre-checks |
-| **transparency-reporter** | Generates transparency reports and governance audit trails |
-| **membership-coordinator** | Reviews membership applications and status changes |
-| **compliance-auditor** | Audits governance compliance; never says "this is fine" |
+| Agent                      | Purpose                                                                     |
+| -------------------------- | --------------------------------------------------------------------------- |
+| **constitution-checker**   | Analyzes governance actions against 77 clauses and 11 entrenched provisions |
+| **rfc-drafter**            | Drafts RFCs with constitutional compliance pre-checks                       |
+| **transparency-reporter**  | Generates transparency reports and governance audit trails                  |
+| **membership-coordinator** | Reviews membership applications and status changes                          |
+| **compliance-auditor**     | Audits governance compliance; never says "this is fine"                     |
 
 ### Domain Knowledge
 
-| Agent | Purpose |
-|-------|---------|
-| **domain-expert** | Singapore CLG governance, constitutional framework, regulatory requirements |
+| Agent                | Purpose                                                                        |
+| -------------------- | ------------------------------------------------------------------------------ |
+| **domain-expert**    | Singapore CLG governance, constitutional framework, regulatory requirements    |
 | **quality-reviewer** | Reviews governance artifacts against constitutional and transparency standards |
 
 ### Management
 
-| Agent | Purpose |
-|-------|---------|
-| **todo-manager** | Task tracking within governance workspaces |
-| **gh-manager** | GitHub issue management for governance milestones |
+| Agent            | Purpose                                           |
+| ---------------- | ------------------------------------------------- |
+| **todo-manager** | Task tracking within governance workspaces        |
+| **gh-manager**   | GitHub issue management for governance milestones |
 
 ## Hard Refusals
 
 COG will refuse certain requests. These are not configurable.
 
-| Request | Response | Reason |
-|---------|----------|--------|
-| Draft an RFC contradicting an entrenched provision | REFUSE. Cites the specific clause. | Entrenched provisions require 75% supermajority and exist to prevent this. |
-| Skip constitutional compliance check | REFUSE. | Every governance action must be checked. |
-| Introduce commercial coupling with an entity | REFUSE. | Foundation independence is constitutionally entrenched. |
-| Grant governance power to corporate sponsors | REFUSE. Cites Clause 17. | The uniform contributor framework prevents this. |
-| Skip transparency reporting | REFUSE. | Transparency is a constitutional mandate. |
-| Make a governance decision without officer direction | REFUSE. | The human makes every governance decision. |
-| Work outside Foundation governance | DECLINE. | COG is a Foundation governance tool. |
+| Request                                              | Response                           | Reason                                                                     |
+| ---------------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------- |
+| Draft an RFC contradicting an entrenched provision   | REFUSE. Cites the specific clause. | Entrenched provisions require 75% supermajority and exist to prevent this. |
+| Skip constitutional compliance check                 | REFUSE.                            | Every governance action must be checked.                                   |
+| Introduce commercial coupling with an entity         | REFUSE.                            | Foundation independence is constitutionally entrenched.                    |
+| Grant governance power to corporate sponsors         | REFUSE. Cites Clause 17.           | The uniform contributor framework prevents this.                           |
+| Skip transparency reporting                          | REFUSE.                            | Transparency is a constitutional mandate.                                  |
+| Make a governance decision without officer direction | REFUSE.                            | The human makes every governance decision.                                 |
+| Work outside Foundation governance                   | DECLINE.                           | COG is a Foundation governance tool.                                       |
 
 ## Limitations
 
-| Feature | CLI (Claude Code) | Cowork Plugin |
-|---------|-------------------|---------------|
-| Guardrail enforcement | Hooks can programmatically enforce rules | Rules are advisory (hard refusals in CLAUDE.md help but are not programmatic) |
-| Session memory | `.session-notes` auto-read on startup | Manual: run `/co-governance:wrapup` before closing, `/co-governance:start` on next session |
-| Skill names | `/analyze`, `/plan`, etc. | `/co-governance:analyze`, `/co-governance:plan`, etc. (prefix required) |
-| Agent permissions | Full hooks and permission modes | No hooks or permission overrides |
-| File access | Full filesystem | Limited to the folder opened in Cowork |
-| Constitutional text | Can read constitution file if present | Can only access files within the Cowork folder |
+| Feature               | CLI (Claude Code)                        | Cowork Plugin                                                                              |
+| --------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Guardrail enforcement | Hooks can programmatically enforce rules | Rules are advisory (hard refusals in CLAUDE.md help but are not programmatic)              |
+| Session memory        | `.session-notes` auto-read on startup    | Manual: run `/co-governance:wrapup` before closing, `/co-governance:start` on next session |
+| Skill names           | `/analyze`, `/plan`, etc.                | `/co-governance:analyze`, `/co-governance:plan`, etc. (prefix required)                    |
+| Agent permissions     | Full hooks and permission modes          | No hooks or permission overrides                                                           |
+| File access           | Full filesystem                          | Limited to the folder opened in Cowork                                                     |
+| Constitutional text   | Can read constitution file if present    | Can only access files within the Cowork folder                                             |
 
 ## Workspace Structure
 
@@ -176,13 +179,13 @@ workspaces/annual-report-2026/
 
 COG implements the five CO layers for the governance domain:
 
-| Layer | What It Does | In COG |
-|-------|-------------|--------|
-| **L1 Intent** | Specialized agents with domain knowledge | 5 governance specialists, 2 domain agents, 2 management agents |
-| **L2 Context** | Institutional knowledge hierarchy | Constitution, entrenched provisions, CLG regulatory framework |
-| **L3 Guardrails** | Hard and soft enforcement | Hard refusals for constitutional violations, independence preservation |
-| **L4 Instructions** | Structured workflow with gates | 5 phases, 14 skills, officer approval gates |
-| **L5 Learning** | Knowledge that compounds | Governance decision journal, compliance audit history |
+| Layer               | What It Does                             | In COG                                                                 |
+| ------------------- | ---------------------------------------- | ---------------------------------------------------------------------- |
+| **L1 Intent**       | Specialized agents with domain knowledge | 5 governance specialists, 2 domain agents, 2 management agents         |
+| **L2 Context**      | Institutional knowledge hierarchy        | Constitution, entrenched provisions, CLG regulatory framework          |
+| **L3 Guardrails**   | Hard and soft enforcement                | Hard refusals for constitutional violations, independence preservation |
+| **L4 Instructions** | Structured workflow with gates           | 6 phases, 14 skills, officer approval gates                            |
+| **L5 Learning**     | Knowledge that compounds                 | Governance decision journal, compliance audit history                  |
 
 ## Troubleshooting
 
@@ -233,12 +236,12 @@ co-governance/
 
 ## Other CO Applications
 
-| Application | Domain | Repository |
-|-------------|--------|------------|
-| COC | Software development | [kailash-coc-claude-py](https://github.com/terrene-foundation/kailash-coc-claude-py) |
-| COR | Academic research | [co-research](https://github.com/terrene-foundation/co-research) |
-| COF | Finance education | [co-finance](https://github.com/terrene-foundation/co-finance) |
-| **COG** | **Foundation governance** | **[co-governance](https://github.com/terrene-foundation/co-governance)** (this repo) |
+| Application | Domain                    | Repository                                                                           |
+| ----------- | ------------------------- | ------------------------------------------------------------------------------------ |
+| COC         | Software development      | [kailash-coc-claude-py](https://github.com/terrene-foundation/kailash-coc-claude-py) |
+| COR         | Academic research         | [co-research](https://github.com/terrene-foundation/co-research)                     |
+| COL-F       | Finance education    | [co-finance](https://github.com/terrene-foundation/co-finance)   |
+| **COG**     | **Foundation governance** | **[co-governance](https://github.com/terrene-foundation/co-governance)** (this repo) |
 
 Build your own: [co-template](https://github.com/terrene-foundation/co-template)
 

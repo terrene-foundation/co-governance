@@ -19,17 +19,21 @@ Welcome the user to the CO for Governance (COG) workspace. This is the Terrene F
 
 ## Then explain the workflow
 
-This COG workspace has five phases for governance work:
+This COG workspace has six phases for governance work:
 
-| Phase | What happens | Command |
-|-------|-------------|---------|
-| **01 Research** | Constitutional analysis, precedent review, requirements gathering | `/analyze` |
-| **02 Plan** | Governance action plan; stops for officer approval | `/plan` |
-| **03 Execute** | Draft governance artifacts one at a time | `/execute` |
-| **04 Review** | Constitutional compliance check, independence audit, transparency review | `/review` |
-| **05 Finalize** | Polish, validate against constitution, prepare for filing or publication | `/finalize` |
+| Phase          | What happens                                                                   | Command    |
+| -------------- | ------------------------------------------------------------------------------ | ---------- |
+| **01 Analyze** | Constitutional analysis, precedent review, requirements gathering              | `/analyze` |
+| **02 Plan**    | Governance action plan; stops for officer approval                             | `/plan`    |
+| **03 Execute** | Draft governance artifacts one at a time                                       | `/execute` |
+| **04 Review**  | Constitutional compliance check, independence audit; produces finalized output | `/review`  |
+| **05 Learn**   | Extract governance precedents; upgrade CO artifacts (.claude/)                 | `/learn`   |
+| **06 Deliver** | Package governance artifacts for filing or publication                         | `/deliver` |
+
+Phase 05 is special — its output goes into the CO system itself (.claude/), not the workspace. Every governance project makes the system stronger.
 
 Governance-specific commands:
+
 - `/check-constitution` -- Check an action against the 77-clause constitution
 - `/draft-rfc` -- Draft an RFC for a governance change
 - `/transparency-report` -- Generate a transparency report

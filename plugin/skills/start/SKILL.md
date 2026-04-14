@@ -19,17 +19,19 @@ Welcome the user to the CO for Governance (COG) workspace. This is the Terrene F
 
 ## Then explain the workflow
 
-This COG workspace has five phases for governance work:
+This COG workspace has six phases for governance work:
 
-| Phase | What happens | Skill |
-|-------|-------------|-------|
-| **01 Research** | Constitutional analysis, precedent review, requirements gathering | `/co-governance:analyze` |
-| **02 Plan** | Governance action plan; stops for officer approval | `/co-governance:plan` |
-| **03 Execute** | Draft governance artifacts one at a time | `/co-governance:execute` |
-| **04 Review** | Constitutional compliance check, independence audit, transparency review | `/co-governance:review` |
-| **05 Finalize** | Polish, validate against constitution, prepare for filing or publication | `/co-governance:finalize` |
+| Phase           | What happens                                                                      | Skill                    |
+| --------------- | --------------------------------------------------------------------------------- | ------------------------ |
+| **01 Research** | Constitutional analysis, precedent review, requirements gathering                 | `/co-governance:analyze` |
+| **02 Plan**     | Governance action plan; stops for officer approval                                | `/co-governance:plan`    |
+| **03 Execute**  | Draft governance artifacts one at a time                                          | `/co-governance:execute` |
+| **04 Review**   | Constitutional compliance check, independence audit; produce finalized output     | `/co-governance:review`  |
+| **05 Learn**    | Extract governance precedents into .claude/ artifacts (officer approval required) | `/co-governance:learn`   |
+| **06 Deliver**  | Package governance artifacts for filing or publication                            | `/co-governance:deliver` |
 
 Governance-specific skills:
+
 - `/co-governance:check-constitution` -- Check an action against the 77-clause constitution
 - `/co-governance:draft-rfc` -- Draft an RFC for a governance change
 - `/co-governance:transparency-report` -- Generate a transparency report

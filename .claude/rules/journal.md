@@ -1,3 +1,9 @@
+---
+paths:
+  - "workspaces/**/journal/**"
+  - "workspaces/**"
+---
+
 # Journal Rules
 
 ## Scope
@@ -28,7 +34,7 @@ session_id: [session ID if available]
 session_turn: [conversation turn number]
 project: [project name]
 topic: [brief description]
-phase: analyze | plan | execute | review | finalize
+phase: analyze | plan | execute | review | learn | deliver
 tags: [list of relevant tags]
 ---
 ```

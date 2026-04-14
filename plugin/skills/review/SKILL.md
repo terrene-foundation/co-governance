@@ -24,33 +24,42 @@ Save to `04-review/review-[topic-slug].md`:
 
 ```markdown
 # Governance Review: $ARGUMENTS
+
 Date: [today]
 
 ## Constitutional Compliance
+
 [Clause-by-clause analysis of compliance]
 
 ## Critical Issues (constitutional violations)
+
 [Must be remediated before finalization]
 
 ## Major Issues (governance risks)
+
 [Should be remediated before finalization]
 
 ## Minor Issues (best practice gaps)
+
 [Worth addressing for governance quality]
 
 ## Independence Assessment
+
 [Does any artifact introduce commercial coupling or exclusive access?]
 
 ## Transparency Assessment
+
 [Is the rationale documented? Could this be explained publicly?]
 
 ## Strengths
+
 [What works well - be specific]
 
 ## Recommendations
+
 [Prioritized list of what to fix first]
 ```
 
 ## Next Step
 
-After the governance officer addresses review findings, recommend `/finalize` to prepare the final governance artifact.
+Review produces finalized output in `05-output/`. After the governance officer addresses review findings, recommend `/learn` to extract governance precedents, then `/deliver` to package for filing or publication.
