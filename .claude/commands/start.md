@@ -1,56 +1,71 @@
 ---
 name: start
-description: Orientation for governance officers. Explains the COG workflow, checks workspace state, and asks about the governance task.
+description: "New session orientation. Explains atelier's role, the 6-phase workflow, and how to begin a project."
 ---
 
-# COG Orientation
+# /start
 
-Welcome the user to the CO for Governance (COG) workspace. This is the Terrene Foundation's self-governance tool, built on its own CO methodology.
+Present this orientation in a warm, clear way. Adapt tone — if the user seems new, take more time; if they're experienced, be concise.
 
-## First, check the workspace
+## What is atelier?
 
-1. If `$ARGUMENTS` specifies a project name, focus on `workspaces/$ARGUMENTS/`
-2. Otherwise, look for a `workspaces/` directory in the current project folder
-3. If workspaces exist, list any active projects (non-template subdirectories)
-4. If no workspaces exist, explain that the user needs to set up a workspace:
+Atelier is the **CO + CC methodology authority**. It's where the canonical patterns for Cognitive Orchestration and Claude Code artifacts are designed, reviewed, and shipped to downstream consumers (loom for codegen, lyceum for education, terrene for governance and research, plus all the co-\* domain repos).
+
+Atelier is NOT a codegen shop. It produces methodology — agents, skills, rules, commands, hooks — that other repos consume.
+
+## What you do here
+
+You direct the AI to do CO methodology work. That work follows 6 phases:
+
+| #   | Phase   | Command    | What happens                                                                |
+| --- | ------- | ---------- | --------------------------------------------------------------------------- |
+| 1   | Analyze | `/analyze` | Research the problem space. Surface findings and gaps. No decisions yet.    |
+| 2   | Plan    | `/plan`    | Decompose findings into approved tasks. **STOPS for your approval.**        |
+| 3   | Execute | `/execute` | Draft artifacts one task at a time, with verification.                      |
+| 4   | Vet     | `/vet`     | Spec coverage + adversarial review. Promotes drafts to canonical artifacts. |
+| 5   | Codify  | `/codify`  | Extract reusable patterns into atelier's own .claude/ for future runs.      |
+| 6   | Deliver | `/deliver` | Package the work and identify which downstream syncs are needed.            |
+
+Plus cross-cutting commands you'll use along the way:
+
+- `/ws` — workspace status dashboard
+- `/journal` — knowledge trail (decisions, discoveries, risks)
+- `/wrapup` — save session notes before ending
+- `/cc-audit` — audit CC+CO artifacts for quality
+- `/sync`, `/sync-to-coc` — push artifacts downstream
+
+## Getting started
+
+### If you have an idea but no workspace yet
+
+1. Create a workspace from the template:
+
+   ```bash
+   cp -r workspaces/_template workspaces/<your-project>
    ```
-   cp -r workspaces/_template workspaces/my-governance-task
-   ```
 
-## Then explain the workflow
+2. Edit `workspaces/<your-project>/brief.md` — describe what you want to do, in your own words. Include why it matters and what success looks like. The brief is the user's input surface.
 
-This COG workspace has six phases for governance work:
+3. Run `/analyze` — this kicks off the research phase.
 
-| Phase          | What happens                                                                   | Command    |
-| -------------- | ------------------------------------------------------------------------------ | ---------- |
-| **01 Analyze** | Constitutional analysis, precedent review, requirements gathering              | `/analyze` |
-| **02 Plan**    | Governance action plan; stops for officer approval                             | `/plan`    |
-| **03 Execute** | Draft governance artifacts one at a time                                       | `/execute` |
-| **04 Review**  | Constitutional compliance check, independence audit; produces finalized output | `/review`  |
-| **05 Learn**   | Extract governance precedents; upgrade CO artifacts (.claude/)                 | `/learn`   |
-| **06 Deliver** | Package governance artifacts for filing or publication                         | `/deliver` |
+### If you already have a workspace
 
-Phase 05 is special — its output goes into the CO system itself (.claude/), not the workspace. Every governance project makes the system stronger.
+Run `/ws` to see current status, or jump straight to the next phase command if you know where you left off.
 
-Governance-specific commands:
+## Tips for working with atelier
 
-- `/check-constitution` -- Check an action against the 77-clause constitution
-- `/draft-rfc` -- Draft an RFC for a governance change
-- `/transparency-report` -- Generate a transparency report
-- `/audit-compliance` -- Audit governance actions for compliance
-- `/review-membership` -- Review a membership application
+- **You don't need to write rules yourself.** Describe what you want; the AI proposes the artifacts and you approve.
+- **The plan gate is the only mandatory stop.** Phases 1, 3, 4, 5, 6 run autonomously between gates. Phase 2 (`/plan`) MUST stop for your approval.
+- **The journal is the memory.** Every session should produce journal entries — DECISION, DISCOVERY, TRADE-OFF, RISK, CONNECTION, GAP. This is how knowledge compounds across sessions.
+- **Atelier is the source.** Changes here propagate downstream via `/sync` and `/sync-to-coc`. Take care — what you ship from atelier becomes the canonical reference for every domain that consumes it.
+- **Domain neutrality matters.** Atelier methodology MUST work for codegen, research, finance, education, governance, and any future domain. Per `rules/domain-independence.md`, no domain-specific assumptions in CC/CO artifacts.
 
-Utility commands: `/ws` (status), `/wrapup` (save progress), `/checkpoint` (review learning).
+## Where to learn more
 
-## Then ask
+- `CLAUDE.md` — atelier's identity and absolute directives
+- `.claude/skills/co-reference/` — CO methodology reference (8 principles, 5 layers, 6 phases)
+- `.claude/skills/cc-artifact-patterns/` — CC artifact quality reference
+- `.claude/skills/atelier-broker-model/` — atelier's role in the ecosystem
+- `.claude/rules/` — the enforced rules (artifact-flow, cc-artifacts, communication, domain-independence, execution-discipline, git, independence, journal, no-stubs, rule-authoring, specs-authority, terrene-naming)
 
-1. What governance task are you working on?
-2. Is this a new task or continuing existing work?
-3. What is the target output (RFC, transparency report, compliance check, membership review, policy draft)?
-4. What phase is the officer in (or starting fresh)?
-
-Based on answers, recommend the next command to run.
-
-## If continuing existing work
-
-Read `.session-notes` if it exists. Summarize what was accomplished and what the next step is.
+Start with `/ws` to see current state, then `/analyze` if you have a brief ready.
