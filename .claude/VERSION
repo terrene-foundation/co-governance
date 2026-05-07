@@ -1,14 +1,26 @@
 {
-  "version": "1.4.0",
+  "version": "1.4.1",
   "type": "co-domain",
   "domain": "governance",
   "description": "CO for Governance (COG) — governance and compliance methodology",
   "released": "2026-05-06",
   "upstream": {
     "name": "atelier",
-    "version": "1.4.0"
+    "version": "1.4.1"
   },
   "changelog": [
+    {
+      "version": "1.4.1",
+      "date": "2026-05-06",
+      "summary": "Sync from atelier 1.4.1 — per-type fixture sets for agent/skill/command frontmatter lints",
+      "changes": [
+        "NEW: audit-fixtures/agent-frontmatter-lint/ — 4 fixture/expected pairs + README",
+        "NEW: audit-fixtures/skill-frontmatter-lint/ — 4 fixture/expected pairs + README",
+        "NEW: audit-fixtures/command-frontmatter-lint/ — 4 fixture/expected pairs + README",
+        "NOTE: cc-audit.md kept domain-customized per Q4 of cc-audit-lint-extend-artifacts plan",
+        "NOTE: COG agents currently use tools: (correct); no in-the-wild bugs to track for this domain"
+      ]
+    },
     {
       "version": "1.4.0",
       "date": "2026-05-06",
