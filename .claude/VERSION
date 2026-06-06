@@ -6,9 +6,22 @@
   "released": "2026-05-06",
   "upstream": {
     "name": "atelier",
-    "version": "1.4.1"
+    "version": "1.5.0"
   },
   "changelog": [
+    {
+      "version": "1.5.0",
+      "date": "2026-06-06",
+      "summary": "Sync from atelier 1.5.0 — adopt hook-independent CC/CO artifacts (upstream pointer bumped to 1.5.0; domain version field left unchanged pending per-repo command backport)",
+      "changes": [
+        "NEW: 15 rules — autonomous-execution, time-pressure-discipline, recommendation-quality, verify-resource-existence, sweep-completeness, spec-accuracy, governed-throughput, probe-driven-verification, value-prioritization, subagent-delegation-verification, resolve-on-discovery, upstream-issue-hygiene, user-flow-validation, delegation-orchestration, multi-operator-coordination",
+        "NEW(base): rules/git.md, rules/rule-authoring.md, rules/execution-discipline.md — absent downstream; added from atelier authority",
+        "MODIFIED(base): rules/cc-artifacts.md, rules/specs-authority.md — overwritten from atelier authority",
+        "NEW: 8 guides — claude-code/13-16, deterministic-quality/04-parallel-agent-bundles, model-optimization/01-model-selection-by-task, portability/01-artifact-neutrality, portability/02-multi-target-parity",
+        "NEW: 4 skill dirs — command-authoring, skill-authoring, cc-orchestration-patterns, test-harness-probe; + co-reference/behavioral-guidelines.md",
+        "HELD: trust-posture/hook-enforcement cluster (trust-posture, hook-output-discipline, journal-author-discipline, repo-scope-discipline, self-referential-codify rules; hook-authoring + trust-posture skills; settings-manager agent) — requires a .claude/hooks/ substrate co-governance lacks"
+      ]
+    },
     {
       "version": "1.4.1",
       "date": "2026-05-06",
