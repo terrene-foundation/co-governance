@@ -1,14 +1,33 @@
 {
-  "version": "1.4.1",
+  "version": "1.5.2",
   "type": "co-domain",
   "domain": "governance",
   "description": "CO for Governance (COG) — governance and compliance methodology",
-  "released": "2026-05-06",
+  "released": "2026-06-08",
   "upstream": {
     "name": "atelier",
-    "version": "1.5.0"
+    "version": "1.5.2"
   },
   "changelog": [
+    {
+      "version": "1.5.2",
+      "date": "2026-06-08",
+      "summary": "Full non-held resync from atelier 1.5.2 — bring the CC/CO rule + guide corpus current (1.5.0 → 1.5.2), de-framework the Claude Code guide set, and close a pre-existing dangling reference (cc-artifact-patterns skill cited by cc-artifacts.md but never present). Domain-specific governance/compliance artifacts preserved. Held cluster still excluded (no hook substrate).",
+      "changes": [
+        "NEW rules (7): artifact-flow.md, cc-enforcement.md (split-half of cc-artifacts: /codify gate, audit fixtures, positive-allowlist sweeps), domain-independence.md, independence.md (incl. MUST NOT §5 Foundation-owned-MAY / proprietary-MUST-NOT, A2-003), no-stubs.md, specs-delegation.md (split-half of specs-authority: agent-delegation-includes-specs), terrene-naming.md (OCEAN→Terrene + License Accuracy, pointer to independence §5)",
+        "UPDATED rules (15): autonomous-execution, cc-artifacts (now split → references cc-enforcement), execution-discipline, governed-throughput, multi-operator-coordination, probe-driven-verification, recommendation-quality, resolve-on-discovery, spec-accuracy, specs-authority (now split → references specs-delegation), sweep-completeness, time-pressure-discipline, upstream-issue-hygiene, user-flow-validation, verify-resource-existence",
+        "NEW skill: cc-artifact-patterns/ — closes a pre-existing dangling reference (cc-artifacts.md + cc-enforcement.md cite it as the CC architecture reference; the skill was never present downstream)",
+        "UPDATED guides (5): claude-code/{13-agentic-architecture,16-context-reliability,README}, portability/{01-artifact-neutrality,02-multi-target-parity}",
+        "NEW guides (13): co-setup/{01-architecture,02-project-types,03-creating-components,04-propagation,05-conversion,09-proposal-protocol,README}, deterministic-quality/{01-rule-authoring-principles,02-session-architecture,03-enforcement-ladder,README}, model-optimization/README, portability/README",
+        "DELETED de-framework guide set (14): claude-code/00–12 + claude-code/CLAUDE.md — the framework-specific Claude Code onboarding manual (loom/Kailash USE-template content that contradicted the agnostic-authority identity); the 4 neutral pattern guides (13–16) + README are kept and refreshed",
+        "DELETED stale model-optimization (0): none present downstream — co-governance already carried only 01-model-selection-by-task (the replacement)",
+        "EDIT (sync-local, 6): scrubbed dangling held-item refs introduced/surfaced by the verbatim copy — cc-enforcement.md Cross-References bullet to hook-output-discipline.md (HELD); hook-authoring skill refs in claude-code/13-agentic-architecture, claude-code/README, portability/02-multi-target-parity (redirected to cc-enforcement.md or removed), portability/01-artifact-neutrality (removed); skills/skill-authoring/SKILL.md hook-authoring companion bullet (removed)",
+        "EDIT (sync-local, roster trim): co-setup/01-architecture.md component table + co-setup/02-project-types.md copy-as-is agent tree trimmed to what co-governance actually ships (dropped co-expert/analyst/intermediate-reviewer/atelier-broker-model + the settings-manager agent + the held-hooks table row)",
+        "PRESERVED: domain-integrity.md rule; governance/ + compliance/ + domain/ agents (constitution-checker, rfc-drafter, transparency-reporter, membership-coordinator, compliance-auditor, regulation-analyst, control-mapper, gap-assessor, report-drafter, audit-preparer, domain-expert, quality-reviewer); guides/conversion/ (4 files, atelier-absent); rules value-prioritization/delegation-orchestration/subagent-delegation-verification (not in the resync set)",
+        "STILL HELD (not synced): rules trust-posture, hook-output-discipline, journal-author-discipline, repo-scope-discipline, self-referential-codify; skills hook-authoring, trust-posture; agent management/settings-manager; all .claude/hooks/ — require a hook substrate co-governance lacks",
+        "NOTE: CLAUDE.md left untouched (configurable template stub, never overwritten)"
+      ]
+    },
     {
       "version": "1.5.0",
       "date": "2026-06-06",
