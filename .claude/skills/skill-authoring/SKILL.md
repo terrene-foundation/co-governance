@@ -176,7 +176,6 @@ When auditing an existing skill:
 
 - `skills/cc-artifact-patterns/` — what makes any CC artifact work; the 12 hard limits and 12 anti-patterns (Hard Limit 8 = the 80/20 rule; anti-pattern "Long agent description" is this skill's description-cap sibling)
 - `skills/command-authoring/` — the command companion (frontmatter, the 150-line cap, command-vs-skill-vs-agent placement)
-- `skills/hook-authoring/` — the hook companion (lifecycle, timeout fallback, structure-only checks)
 - `rules/cc-artifacts.md` Rule 1b — description ≤ 200 chars enforcement and the listing-budget evidence
 - `rules/cc-artifacts.md` Rule 2 — progressive disclosure 80/20
 - `rules/rule-authoring.md` — the over-density principle behind the output-quality framing of progressive disclosure
