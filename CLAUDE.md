@@ -95,12 +95,14 @@ When you discover a missing compliance check, governance record, control mapping
 
 ### Utility Commands
 
-| Command    | Purpose                           |
-| ---------- | --------------------------------- |
-| `/ws`      | Workspace status dashboard        |
-| `/wrapup`  | Save session notes for continuity |
-| `/journal` | View, create, or search journal   |
-| `/cc-audit`| Audit CC artifacts                |
+| Command       | Purpose                                              |
+| ------------- | ----------------------------------------------------- |
+| `/ws`         | Workspace status dashboard                            |
+| `/wrapup`     | Save session notes for continuity                     |
+| `/journal`    | View, create, or search journal                       |
+| `/cc-audit`   | Audit CC artifacts                                    |
+| `/autonomize` | Adopt autonomous execution posture for the session    |
+| `/sweep`      | Repo-wide outstanding-work audit before `/wrapup`     |
 
 ## Agents
 

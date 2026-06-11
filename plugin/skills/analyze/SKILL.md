@@ -16,11 +16,11 @@ Research and analyze the governance topic **$ARGUMENTS** thoroughly.
 4. **Check entrenched provisions** for any constraints on the topic
 5. **Research precedents** from previous governance decisions in the workspace journal
 6. **Identify regulatory requirements** (Singapore CLG, ACRA) if applicable
-7. **Document findings** in `01-research/`
+7. **Document findings** in `01-analyze/`
 
 ## Output
 
-Save a structured analysis to `01-research/analysis-[topic-slug].md`:
+Save a structured analysis to `01-analyze/analysis-[topic-slug].md`:
 
 ```markdown
 # Governance Analysis: $ARGUMENTS

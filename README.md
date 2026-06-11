@@ -164,7 +164,7 @@ COG will refuse certain requests. These are not configurable.
 
 ```
 workspaces/annual-report-2026/
-  01-research/        # Constitutional analysis, precedent review
+  01-analyze/         # Constitutional analysis, precedent review
   02-planning/        # Governance action plans, RFC outlines
   03-work/            # RFCs, reports, policies in progress
   04-review/          # Compliance checks, independence audits
@@ -223,7 +223,7 @@ co-governance/
     agents/                    # Same agents, packaged for plugin
   workspaces/
     _template/                 # Workspace template
-      01-research/
+      01-analyze/
       02-planning/
       03-work/
       04-review/

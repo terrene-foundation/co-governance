@@ -15,7 +15,7 @@ Create a structured governance action plan for the active project. This plan req
 
 ## Protocol
 
-1. **Read analysis outputs** from `01-research/`
+1. **Read analysis outputs** from `01-analyze/`
 2. **Identify the constitutional basis** for the planned governance actions
 3. **Break the work into phases and tasks** with clear deliverables
 4. **Flag any tasks that require constitutional interpretation**
