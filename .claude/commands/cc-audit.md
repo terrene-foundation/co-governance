@@ -62,7 +62,7 @@ An invalid-frontmatter hit on rule Y is downgraded to NOTE because
 | ---------------------------- | ------------------------ |
 | Audit execution              | claude-code-architect    |
 | Standards compliance         | gold-standards-validator |
-| Cross-reference verification | intermediate-reviewer    |
+| Cross-reference verification | quality-reviewer         |
 
 ## Completion Evidence
 
