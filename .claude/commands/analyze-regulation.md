@@ -17,11 +17,11 @@ Analyze **$ARGUMENTS** and extract a structured requirements register.
 5. **Classify requirements**: mandatory vs conditional vs recommended
 6. **Identify cross-references**: where this regulation references other regulations or standards
 7. **Flag ambiguities**: requirements that could be interpreted multiple ways
-8. **Save the requirements register** to `03-work/`
+8. **Save the requirements register** to `03-execute/`
 
 ## Output
 
-Save to `03-work/requirements-register-[regulation-slug].md` with the structured format defined in the regulation-analyst agent.
+Save to `03-execute/requirements-register-[regulation-slug].md` with the structured format defined in the regulation-analyst agent.
 
 ## Rules
 

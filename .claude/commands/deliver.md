@@ -15,8 +15,8 @@ Package the finalized governance output for filing or publication.
 
 ## Protocol
 
-1. **Confirm review is complete** — check that 04-review/ has review findings and critical issues are resolved
-2. **Package the output** — ensure 05-output/ contains the finalized governance artifacts
+1. **Confirm review is complete** — check that 04-vet/ has review findings and critical issues are resolved
+2. **Package the output** — ensure 06-deliver/ contains the finalized governance artifacts
 3. **Run final validation** against constitutional compliance rules
 4. **Pre-delivery checklist**:
    - [ ] All critical review issues resolved

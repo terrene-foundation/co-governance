@@ -21,7 +21,7 @@ Draft an RFC for the proposed governance change: **$ARGUMENTS**
 
 ## Output
 
-Save the RFC draft to `03-work/rfc-[slug].md` in the active workspace.
+Save the RFC draft to `03-execute/rfc-[slug].md` in the active workspace.
 
 The RFC follows the Foundation's standard format:
 - Summary, Motivation, Proposal

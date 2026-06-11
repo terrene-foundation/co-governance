@@ -13,7 +13,7 @@ description: Show workspace status dashboard. Read-only.
 
 ## Dashboard
 
-1. List contents of each phase directory (01-analyze through 05-output)
+1. List contents of each phase directory (01-analyze through 06-deliver)
 2. Count completed vs active todos
 3. Check for .session-notes
 4. Report the current phase based on which directories have content

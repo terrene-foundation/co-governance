@@ -23,7 +23,7 @@ Create a structured governance action plan for the active project. This plan req
 
 ## Output
 
-Save the plan to `02-planning/plan.md`:
+Save the plan to `02-plan/plan.md`:
 
 ```markdown
 # Governance Action Plan

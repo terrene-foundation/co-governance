@@ -165,10 +165,11 @@ COG will refuse certain requests. These are not configurable.
 ```
 workspaces/annual-report-2026/
   01-analyze/         # Constitutional analysis, precedent review
-  02-planning/        # Governance action plans, RFC outlines
-  03-work/            # RFCs, reports, policies in progress
-  04-review/          # Compliance checks, independence audits
-  05-output/          # Final governance artifacts
+  02-plan/            # Governance action plans, RFC outlines
+  03-execute/         # RFCs, reports, policies in progress
+  04-vet/             # Compliance checks, independence audits
+  05-codify/          # Governance precedents lifted to .claude/
+  06-deliver/         # Final governance artifacts
   journal/            # Governance decision records
   todos/
     active/           # Current tasks
@@ -224,10 +225,11 @@ co-governance/
   workspaces/
     _template/                 # Workspace template
       01-analyze/
-      02-planning/
-      03-work/
-      04-review/
-      05-output/
+      02-plan/
+      03-execute/
+      04-vet/
+      05-codify/
+      06-deliver/
       journal/
       todos/
 ```
@@ -240,7 +242,7 @@ co-governance/
 | ----------- | ------------------------- | ------------------------------------------------------------------------------------ |
 | COC         | Software development      | [kailash-coc-claude-py](https://github.com/terrene-foundation/kailash-coc-claude-py) |
 | COR         | Academic research         | [co-research](https://github.com/terrene-foundation/co-research)                     |
-| COL-F       | Finance education    | [co-finance](https://github.com/terrene-foundation/co-finance)   |
+| COL-F       | Finance education         | [co-finance](https://github.com/terrene-foundation/co-finance)                       |
 | **COG**     | **Foundation governance** | **[co-governance](https://github.com/terrene-foundation/co-governance)** (this repo) |
 
 Build your own: [co-template](https://github.com/terrene-foundation/co-template)

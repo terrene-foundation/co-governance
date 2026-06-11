@@ -5,7 +5,7 @@ description: Draft governance artifacts one task at a time from the approved pla
 
 # /execute
 
-Work through the approved governance action plan from `02-planning/plan.md`, one task at a time.
+Work through the approved governance action plan from `02-plan/plan.md`, one task at a time.
 
 ## Workspace Resolution
 
@@ -15,12 +15,12 @@ Work through the approved governance action plan from `02-planning/plan.md`, one
 
 ## Protocol
 
-1. **Read the plan** from `02-planning/plan.md`
+1. **Read the plan** from `02-plan/plan.md`
 2. **Find the next incomplete task**
 3. **Context anchor**: read `specs/_index.md`, identify which spec files cover this task's domain, read them. The spec is the authority on what to build. Per `rules/specs-authority.md` MUST §4.
 4. **Run a constitutional compliance pre-check** on the task output
 5. **Execute the task**, producing the specified governance artifact
-6. **Save output** to `03-work/`
+6. **Save output** to `03-execute/`
 7. **Check spec currency**: if this task changed domain truth (constitutional interpretation, regulatory applicability, control mapping), update the relevant spec file immediately per `rules/specs-authority.md` MUST §5. If execution deviates from spec, STOP: update spec with deviation and rationale, flag user-visible changes for officer approval.
 8. **Mark the task complete** in the plan
 9. **Report what was done** and what the next task is

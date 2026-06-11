@@ -20,7 +20,7 @@ Review the membership application or status change for: **$ARGUMENTS**
 
 ## Output
 
-Save the review to `03-work/membership-review-[slug].md` in the active workspace.
+Save the review to `03-execute/membership-review-[slug].md` in the active workspace.
 
 The review follows the Foundation's standard format:
 - Applicant or member identification
