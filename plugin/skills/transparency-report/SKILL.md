@@ -21,7 +21,7 @@ Generate a governance transparency report for: **$ARGUMENTS**
 
 ## Output
 
-Save the report to `03-work/transparency-report-[slug].md` in the active workspace.
+Save the report to `03-execute/transparency-report-[slug].md` in the active workspace.
 
 The report follows the Foundation's standard transparency report format:
 - Summary of governance activity
@@ -41,4 +41,4 @@ The report follows the Foundation's standard transparency report format:
 
 ## Next Step
 
-Present the report to the governance officer for review. Recommend `/review` for a compliance audit of the report before publication.
+Present the report to the governance officer for review. Recommend `/vet` for a compliance audit of the report before publication.

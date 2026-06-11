@@ -1,16 +1,16 @@
 ---
-name: review
+name: vet
 description: Constitutional compliance check, independence audit, and transparency review of governance artifacts. Never says "this is fine."
 argument-hint: "[what to review]"
 ---
 
-# /review $ARGUMENTS
+# /vet $ARGUMENTS
 
 Review **$ARGUMENTS** for constitutional compliance, independence preservation, and transparency. Find every weakness, gap, error, and improvement opportunity.
 
 ## Protocol
 
-1. **Read the governance artifacts** from `03-work/`
+1. **Read the governance artifacts** from `03-execute/`
 2. **Run constitutional compliance check** against all relevant clauses
 3. **Check entrenched provision compliance** specifically
 4. **Assess independence preservation** across all artifacts
@@ -20,7 +20,7 @@ Review **$ARGUMENTS** for constitutional compliance, independence preservation, 
 
 ## Output
 
-Save to `04-review/review-[topic-slug].md`:
+Save to `04-vet/review-[topic-slug].md`:
 
 ```markdown
 # Governance Review: $ARGUMENTS
@@ -62,4 +62,4 @@ Date: [today]
 
 ## Next Step
 
-Review produces finalized output in `05-output/`. After the governance officer addresses review findings, recommend `/learn` to extract governance precedents, then `/deliver` to package for filing or publication.
+Review produces finalized output in `06-deliver/`. After the governance officer addresses review findings, recommend `/codify` to extract governance precedents, then `/deliver` to package for filing or publication.

@@ -20,7 +20,7 @@ Audit **$ARGUMENTS** for constitutional compliance, independence preservation, a
 
 ## Output
 
-Save the audit report to `04-review/compliance-audit-[slug].md` in the active workspace.
+Save the audit report to `04-vet/compliance-audit-[slug].md` in the active workspace.
 
 The audit follows the Foundation's standard format:
 - Critical Issues (constitutional violations, must remediate immediately)

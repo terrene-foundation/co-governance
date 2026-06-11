@@ -26,8 +26,8 @@ This COG workspace has six phases for governance work:
 | **01 Analyze** | Constitutional analysis, precedent review, requirements gathering              | `/analyze` |
 | **02 Plan**    | Governance action plan; stops for officer approval                             | `/plan`    |
 | **03 Execute** | Draft governance artifacts one at a time                                       | `/execute` |
-| **04 Review**  | Constitutional compliance check, independence audit; produces finalized output | `/review`  |
-| **05 Learn**   | Extract governance precedents; upgrade CO artifacts (.claude/)                 | `/learn`   |
+| **04 Review**  | Constitutional compliance check, independence audit; produces finalized output | `/vet`  |
+| **05 Codify**   | Extract governance precedents; upgrade CO artifacts (.claude/)                 | `/codify`   |
 | **06 Deliver** | Package governance artifacts for filing or publication                         | `/deliver` |
 
 Phase 05 is special — its output goes into the CO system itself (.claude/), not the workspace. Every governance project makes the system stronger.

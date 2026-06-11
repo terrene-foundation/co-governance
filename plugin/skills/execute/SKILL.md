@@ -5,7 +5,7 @@ description: Draft governance artifacts one task at a time from the approved pla
 
 # /execute
 
-Work through the approved governance action plan from `02-planning/plan.md`, one task at a time.
+Work through the approved governance action plan from `02-plan/plan.md`, one task at a time.
 
 ## Workspace Resolution
 
@@ -15,11 +15,11 @@ Work through the approved governance action plan from `02-planning/plan.md`, one
 
 ## Protocol
 
-1. **Read the plan** from `02-planning/plan.md`
+1. **Read the plan** from `02-plan/plan.md`
 2. **Find the next incomplete task**
 3. **Run a constitutional compliance pre-check** on the task output
 4. **Execute the task**, producing the specified governance artifact
-5. **Save output** to `03-work/`
+5. **Save output** to `03-execute/`
 6. **Mark the task complete** in the plan
 7. **Report what was done** and what the next task is
 
@@ -34,4 +34,4 @@ Work through the approved governance action plan from `02-planning/plan.md`, one
 
 ## Next Step
 
-When all tasks are complete, recommend `/review` for constitutional compliance checking and quality review.
+When all tasks are complete, recommend `/vet` for constitutional compliance checking and quality review.

@@ -12,11 +12,11 @@ Vet **$ARGUMENTS** for constitutional compliance, independence preservation, and
 
 ### 1. Spec coverage audit (MUST run first)
 
-Walk `brief.md` → `specs/_index.md` → relevant spec files → `02-planning/` → `03-work/` and verify that EVERY specified governance item was actually built — not just exists. **Specs are the PRIMARY source** — they contain the detailed constitutional, regulatory, and control-mapping truth that the brief only summarizes. For each spec file, extract assertions at field level (not just section level) and verify against the actual artifacts. Artifact diverging from spec without logged deviation = HIGH. Produce `04-vet/.spec-coverage` as a table mapping brief item → spec file → plan task → artifact → status. **Existence is NOT fulfillment.**
+Walk `brief.md` → `specs/_index.md` → relevant spec files → `02-plan/` → `03-execute/` and verify that EVERY specified governance item was actually built — not just exists. **Specs are the PRIMARY source** — they contain the detailed constitutional, regulatory, and control-mapping truth that the brief only summarizes. For each spec file, extract assertions at field level (not just section level) and verify against the actual artifacts. Artifact diverging from spec without logged deviation = HIGH. Produce `04-vet/.spec-coverage` as a table mapping brief item → spec file → plan task → artifact → status. **Existence is NOT fulfillment.**
 
 ### 2. Constitutional and independence checks
 
-1. **Read the governance artifacts** from `03-work/`
+1. **Read the governance artifacts** from `03-execute/`
 2. **Run constitutional compliance check** against all relevant clauses
 3. **Check entrenched provision compliance** specifically
 4. **Assess independence preservation** across all artifacts
@@ -26,7 +26,7 @@ Walk `brief.md` → `specs/_index.md` → relevant spec files → `02-planning/`
 
 ## Output
 
-Save to `04-review/review-[topic-slug].md`:
+Save to `04-vet/review-[topic-slug].md`:
 
 ```markdown
 # Governance Review: $ARGUMENTS

@@ -5,7 +5,7 @@ description: Package governance artifacts for filing, publication, or formal ado
 
 # /co-governance:deliver
 
-Package the finalized governance artifacts from `05-output/` and prepare them for filing, publication, or formal adoption.
+Package the finalized governance artifacts from `06-deliver/` and prepare them for filing, publication, or formal adoption.
 
 ## Workspace Resolution
 
@@ -15,7 +15,7 @@ Package the finalized governance artifacts from `05-output/` and prepare them fo
 
 ## Protocol
 
-1. **Verify finalized output exists** in `05-output/`
+1. **Verify finalized output exists** in `06-deliver/`
 2. **Confirm the filing or publication target** -- ACRA, Foundation website, GitHub, internal records?
 3. **Package the deliverable** -- format for the target, include constitutional basis and rationale
 4. **Pre-filing checklist**:

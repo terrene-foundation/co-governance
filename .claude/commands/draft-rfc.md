@@ -21,7 +21,7 @@ Draft an RFC for the proposed governance change: **$ARGUMENTS**
 
 ## Output
 
-Save the RFC draft to `03-work/rfc-[slug].md` in the active workspace.
+Save the RFC draft to `03-execute/rfc-[slug].md` in the active workspace.
 
 The RFC follows the Foundation's standard format:
 - Summary, Motivation, Proposal
@@ -41,4 +41,4 @@ The RFC follows the Foundation's standard format:
 
 ## Next Step
 
-Present the draft RFC to the governance officer for review. Recommend `/review` to run a compliance audit on the draft before it enters the comment period.
+Present the draft RFC to the governance officer for review. Recommend `/vet` to run a compliance audit on the draft before it enters the comment period.

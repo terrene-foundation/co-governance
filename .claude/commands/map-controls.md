@@ -11,16 +11,16 @@ Map the requirements for **$ARGUMENTS** to organizational controls.
 ## Protocol
 
 1. **Find the active workspace**
-2. **Read the relevant requirements register** from `03-work/`
+2. **Read the relevant requirements register** from `03-execute/`
 3. **Identify the organization's control framework** (NIST, ISO 27001, SOC 2, or internal). Ask if not yet established.
 4. **Map each requirement to existing controls** with coverage assessment
 5. **Identify shared controls** that satisfy multiple requirements
 6. **Document mapping rationale** for each connection
-7. **Save the control mapping** to `03-work/`
+7. **Save the control mapping** to `03-execute/`
 
 ## Output
 
-Save to `03-work/control-mapping-[area-slug].md` with the structured format defined in the control-mapper agent.
+Save to `03-execute/control-mapping-[area-slug].md` with the structured format defined in the control-mapper agent.
 
 ## Rules
 

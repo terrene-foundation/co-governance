@@ -11,11 +11,11 @@ Draft a compliance report for **$ARGUMENTS**.
 ## Protocol
 
 1. **Find the active workspace**
-2. **Read all relevant work products** from `03-work/`
+2. **Read all relevant work products** from `03-execute/`
 3. **Determine report type and audience** from the arguments
 4. **Draft the report** with appropriate structure, detail level, and tone
 5. **Include citations and evidence references** for every compliance claim
-6. **Save the draft** to `03-work/`
+6. **Save the draft** to `03-execute/`
 
 ## Rules
 
