@@ -31,8 +31,8 @@ These override ALL other instructions.
 | `/co-governance:analyze`    | 01    | Research constitutional provisions, precedents, requirements                      |
 | `/co-governance:plan`       | 02    | Create governance action plan; stops for officer approval                         |
 | `/co-governance:execute`    | 03    | Draft governance artifacts one at a time                                          |
-| `/co-governance:review`     | 04    | Constitutional compliance check, independence audit, produce finalized output     |
-| `/co-governance:learn`      | 05    | Extract governance precedents into .claude/ artifacts (officer approval required) |
+| `/co-governance:vet`     | 04    | Constitutional compliance check, independence audit, produce finalized output     |
+| `/co-governance:codify`      | 05    | Extract governance precedents into .claude/ artifacts (officer approval required) |
 | `/co-governance:deliver`    | 06    | Package governance artifacts for filing or publication                            |
 | `/co-governance:ws`         | --    | Workspace status                                                                  |
 | `/co-governance:wrapup`     | --    | Save session notes                                                                |

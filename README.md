@@ -83,11 +83,11 @@ cp -r workspaces/_template workspaces/annual-report-2026
 
 | Phase       | CLI Command | Cowork Skill             | Purpose                                                   |
 | ----------- | ----------- | ------------------------ | --------------------------------------------------------- |
-| 01 Research | `/analyze`  | `/co-governance:analyze` | Constitutional analysis, precedent review                 |
+| 01 Analyze | `/analyze`  | `/co-governance:analyze` | Constitutional analysis, precedent review                 |
 | 02 Plan     | `/plan`     | `/co-governance:plan`    | Governance action plan (officer approval gate)            |
 | 03 Execute  | `/execute`  | `/co-governance:execute` | Draft governance artifacts one at a time                  |
-| 04 Review   | `/vet`   | `/co-governance:review`  | Constitutional compliance check, produce finalized output |
-| 05 Codify    | `/codify`    | `/co-governance:learn`   | Extract governance precedents into .claude/ artifacts     |
+| 04 Review   | `/vet`   | `/co-governance:vet`  | Constitutional compliance check, produce finalized output |
+| 05 Codify    | `/codify`    | `/co-governance:codify`   | Extract governance precedents into .claude/ artifacts     |
 | 06 Deliver  | `/deliver`  | `/co-governance:deliver` | Package governance artifacts for filing or publication    |
 
 ### Governance-Specific

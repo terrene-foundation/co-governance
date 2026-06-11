@@ -1,9 +1,9 @@
 ---
-name: learn
+name: codify
 description: Extract governance precedents and patterns into .claude/ artifacts. Requires officer approval.
 ---
 
-# /co-governance:learn
+# /co-governance:codify
 
 Extract reusable governance knowledge from this task into CO artifacts (.claude/ directory).
 

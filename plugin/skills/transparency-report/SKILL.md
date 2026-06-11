@@ -41,4 +41,4 @@ The report follows the Foundation's standard transparency report format:
 
 ## Next Step
 
-Present the report to the governance officer for review. Recommend `/review` for a compliance audit of the report before publication.
+Present the report to the governance officer for review. Recommend `/vet` for a compliance audit of the report before publication.

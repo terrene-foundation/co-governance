@@ -23,11 +23,11 @@ This COG workspace has six phases for governance work:
 
 | Phase           | What happens                                                                      | Skill                    |
 | --------------- | --------------------------------------------------------------------------------- | ------------------------ |
-| **01 Research** | Constitutional analysis, precedent review, requirements gathering                 | `/co-governance:analyze` |
+| **01 Analyze** | Constitutional analysis, precedent review, requirements gathering                 | `/co-governance:analyze` |
 | **02 Plan**     | Governance action plan; stops for officer approval                                | `/co-governance:plan`    |
 | **03 Execute**  | Draft governance artifacts one at a time                                          | `/co-governance:execute` |
-| **04 Review**   | Constitutional compliance check, independence audit; produce finalized output     | `/co-governance:review`  |
-| **05 Learn**    | Extract governance precedents into .claude/ artifacts (officer approval required) | `/co-governance:learn`   |
+| **04 Review**   | Constitutional compliance check, independence audit; produce finalized output     | `/co-governance:vet`  |
+| **05 Codify**    | Extract governance precedents into .claude/ artifacts (officer approval required) | `/co-governance:codify`   |
 | **06 Deliver**  | Package governance artifacts for filing or publication                            | `/co-governance:deliver` |
 
 Governance-specific skills:

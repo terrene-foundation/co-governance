@@ -34,4 +34,4 @@ Work through the approved governance action plan from `02-plan/plan.md`, one tas
 
 ## Next Step
 
-When all tasks are complete, recommend `/review` for constitutional compliance checking and quality review.
+When all tasks are complete, recommend `/vet` for constitutional compliance checking and quality review.
