@@ -31,6 +31,31 @@ Specify scope: audit everything, or target a specific artifact type or file.
 
 6. **Report**: Produce findings sorted by severity (CRITICAL → HIGH → NOTE) with specific fix recommendations.
 
+## Composition Precedence
+
+The mechanical checks (cross-reference verification in step 4, line counts and limit checks in step 2) and the four-dimension judgment (step 3) are NOT a flat list of equal findings — they **compose** into one verdict with a fixed precedence. Two signal classes are **load-bearing**; LLM judgment **corroborates**.
+
+- **Structural signal (load-bearing)**: any mechanical-check RED — a cross-reference that does not resolve, an over-limit line/char count, an empty or invalid frontmatter field. Each is CRITICAL **regardless of LLM-dimension judgment**.
+- **Adversarial signal (load-bearing)**: if an effectiveness A/B is run (the same task once with the artifact in context and once with it stripped), a failed A/B on an in-scope artifact is CRITICAL **regardless of LLM-dimension judgment**. See `rules/probe-driven-verification.md`.
+- **LLM judgment (corroborating)**: surfaced at reviewer-judged NOTE/HIGH. Additive on top of the load-bearing signals — it catches what they miss, but it is NEVER auto-cleared and NEVER used to override them.
+
+```markdown
+# DO — structural signal wins:
+
+The cross-reference check flags a dangling reference in agent X.
+LLM read of X: "reads clean, well-scoped, no issues."
+→ Verdict: CRITICAL (the dangling ref). The LLM read is recorded as
+corroboration, not as a clearance.
+
+# DO NOT — LLM judgment overriding a structural red:
+
+An invalid-frontmatter hit on rule Y is downgraded to NOTE because
+"the rule is obviously fine on reading and the key is harmless."
+→ A structural RED is CRITICAL. An LLM "looks fine" can NEVER clear it.
+```
+
+**Why**: Mechanical checks exist to catch silent failures — the class of defect an LLM read misses by construction (a key the runtime parses as no-frontmatter still "reads fine"). If a confident LLM judgment could downgrade a structural RED, the audit's deterministic backbone becomes advisory and the silent-failure class reopens. Precedence is one-directional: structure and adversarial proof gate the verdict; judgment enriches it.
+
 ## Agent Teams
 
 | Function                     | Agent                    |

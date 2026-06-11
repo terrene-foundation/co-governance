@@ -19,6 +19,10 @@ Research and analyze the governance topic **$ARGUMENTS** thoroughly.
 7. **Document findings** in `01-research/`
 8. **Create `specs/`** (MUST — before vet) — see `rules/specs-authority.md`. Create `specs/_index.md` plus one spec file per major governance domain area (e.g., `constitutional-basis.md`, `regulatory-applicability.md`, `entrenched-constraints.md`). Each spec file MUST be detailed enough to be the authority on its topic. For each requirement in the brief, confirm a corresponding spec section exists — missing mappings are BLOCKING.
 
+## Brief-Claim Verification (when the brief carries ≥3 discrete claims)
+
+`/analyze` is where parallel brief-claim verification runs. When the brief or its source material carries **≥3 discrete claims** (counts, clause numbers, file paths, named artifacts, root-cause or "X currently does Y" assertions), apply `rules/delegation-orchestration.md` MUST §2 ("Parallel Brief-Claim Verification") — the canonical requirement, examples, and BLOCKED list: launch parallel verification agents, one per claim cluster, each independently re-reading every cited source. Workspace step unique to `/analyze`: record each verdict (TRUE / FALSE / UNCLEAR + citation) in `01-research/`, then reconcile corrections into the analysis BEFORE `/plan`, so `/plan` sizes against verified reality. Single-agent analysis on a ≥3-claim brief is BLOCKED.
+
 ## Output
 
 Save a structured analysis to `01-research/analysis-[topic-slug].md`:
