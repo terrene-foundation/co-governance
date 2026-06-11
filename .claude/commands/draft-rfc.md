@@ -41,4 +41,4 @@ The RFC follows the Foundation's standard format:
 
 ## Next Step
 
-Present the draft RFC to the governance officer for review. Recommend `/review` to run a compliance audit on the draft before it enters the comment period.
+Present the draft RFC to the governance officer for review. Recommend `/vet` to run a compliance audit on the draft before it enters the comment period.
