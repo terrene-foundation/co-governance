@@ -1,0 +1,59 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(.claude/learning/posture.json)",
+      "Write(.claude/learning/posture.json)",
+      "MultiEdit(.claude/learning/posture.json)",
+      "Edit(.claude/learning/violations.jsonl)",
+      "Write(.claude/learning/violations.jsonl)",
+      "MultiEdit(.claude/learning/violations.jsonl)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/validate-bash-command.js\""
+          },
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/destructive-op-guard.js\""
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/journal-write-guard.js\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/detect-violations.js\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.js\""
+          }
+        ]
+      }
+    ]
+  }
+}
