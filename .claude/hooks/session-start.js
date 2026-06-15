@@ -9,10 +9,10 @@
  * It depends on `lib/posture.js` ONLY — none of the non-posture lib modules
  * (env/workspace/version) are pulled in.
  *
- * Mode: hooks-only / advisory (GATE-B). The banner SURFACES posture + the
- * unadjudicated violation count; it does NOT adjudicate or downgrade. There is
- * no `/cc-audit` step-15 adjudication wired in this repo (see rules/trust-posture.md
- * § Enforcement Status and LANDING § upgrade path).
+ * Mode: full enforcement (GATE-B). The banner SURFACES posture + the
+ * unadjudicated violation count; `/cc-audit` step-15 adjudication converts
+ * probe-CONFIRMED verdicts into posture downgrades (see rules/trust-posture.md
+ * § Enforcement Status). The banner itself never writes posture.
  *
  * Fail-open contract: any error, missing state, or timeout degrades to a clean
  * "continue" with no injected context (lib/runtime.js withFailOpen, 10s ceiling).
@@ -44,13 +44,15 @@ function buildPostureBanner(cwd) {
     "\nPosture ladder: L1 (observed) … L5 (delegated); rules/trust-posture.md " +
     "defines the ceiling. Downgrades are automatic; only a human may upgrade. " +
     (counts.unadjudicated > 0
-      ? `${counts.unadjudicated} recorded violation(s) await probe adjudication at the next /cc-audit (step 15, where wired).`
+      ? `${counts.unadjudicated} recorded violation(s) await probe adjudication at the next /cc-audit (step 15).`
       : "No violations awaiting adjudication.");
   return { banner, additionalContext };
 }
 
 runtime.withFailOpen((input) => {
-  const cwd = runtime.projectDir();
+  const cwd =
+    (input && typeof input.cwd === "string" && input.cwd) ||
+    runtime.projectDir();
   const { banner, additionalContext } = buildPostureBanner(cwd);
   try {
     process.stderr.write(banner + "\n");

@@ -165,13 +165,12 @@ Narrowing trades that cheap safety for a silent gap.
 - **Posture state:** read from `.claude/learning/posture.json` (default `L3`). The gate is
   posture-INVARIANT: it fires the full local `/vet` team at every level, including `L5`.
 - **Regression record:** a self-referential `/codify` that lands without the full `/vet` is recorded to
-  `.claude/learning/violations.jsonl`. `session-start.js` surfaces it in the banner. **In a repo that has
-  wired `/cc-audit` step-15 adjudication (full enforcement), a probe-CONFIRMED verdict additionally counts
-  toward the cumulative downgrade thresholds, and a regression inside a rule's grace window fires
-  `regression_within_grace` → instant one-level drop. A hooks-only/advisory repo runs recording +
-  surfacing + deny-protection only — no auto-downgrade — until step 15 is wired (see
-  `rules/trust-posture.md` § Upgrade Path).** The agent cannot hand-edit either state file (Edit/Write/MultiEdit blocked by `permissions.deny`;
-  Bash-path writes denied by `validate-bash-command.js`).
+  `.claude/learning/violations.jsonl`. `session-start.js` surfaces it in the banner. A probe-CONFIRMED
+  verdict at `/cc-audit` step 15 counts toward the cumulative downgrade thresholds, and a regression inside
+  a rule's grace window fires `regression_within_grace` → instant one-level drop (`rules/trust-posture.md`
+  § Enforcement Status — full enforcement is wired in this repo). The agent cannot hand-edit either state
+  file (Edit/Write/MultiEdit blocked by `permissions.deny`; Bash-path writes denied by
+  `validate-bash-command.js`).
 - **Detection:** MANUAL — the `/codify` orchestrator reads the Rule 2 allowlist, checks the proposal's file
   list, and dispatches the full local `/vet` team on any match.
 

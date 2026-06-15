@@ -11,7 +11,7 @@ paths:
 
 # Trust Posture Rules
 
-Origin: inbound sync from atelier (item-7 hook-cluster propagation, GH #15) — lifts the L1–L5 graduated-autonomy ladder from atelier `rules/trust-posture.md`, carrying atelier's hook substrate (`posture.json` + `detect-violations.js` + `permissions.deny`) as-is. Landed in **hooks-only / advisory** mode (GATE-B): the recording + posture banner + deny-protection run, but `/cc-audit` step-15 adjudication is NOT wired in this repo, so recorded lexical hits surface without auto-moving posture (see § Enforcement Status and § Upgrade Path). Companion to the `/autonomize` command — `/autonomize` adopts the autonomous posture for a session; THIS rule defines the trust ceiling that posture operates under and how that ceiling moves.
+Origin: inbound sync from atelier (item-7 hook-cluster propagation, GH #15) — lifts the L1–L5 graduated-autonomy ladder from atelier `rules/trust-posture.md`, carrying atelier's hook substrate (`posture.json` + `detect-violations.js` + `permissions.deny`) as-is. Landed in **full-enforcement** mode (GATE-B): recording + posture banner + deny-protection AND `/cc-audit` step-15 adjudication are all wired, so probe-CONFIRMED verdicts move posture (see § Enforcement Status). Companion to the `/autonomize` command — `/autonomize` adopts the autonomous posture for a session; THIS rule defines the trust ceiling that posture operates under and how that ceiling moves.
 
 ## Scope
 
@@ -27,28 +27,16 @@ These rules apply whenever the agent acts under a self-governing autonomy postur
 | **L2_SUPERVISED**              | Read; propose drafts; run mechanical sweeps                                                              | Every Edit/Write; every commit; every non-read Bash                                                                                                           |
 | **L1_OBSERVED**                | Propose plans + drafts in chat only                                                                      | Everything that touches the working tree                                                                                                                      |
 
-## Enforcement Status (hooks-only / advisory mode)
+## Enforcement Status (full enforcement — engine live in this repo)
 
-**Mode guard (GATE-B — hooks-only/advisory).** This repo runs the trust substrate in hooks-only/advisory mode. The engine records each violation and `session-start.js` surfaces it in the banner. In a repo that has wired `/cc-audit` step-15 adjudication (full enforcement — co-template), a probe-CONFIRMED verdict additionally counts toward the cumulative downgrade thresholds, and grace/emergency classes drop instantly. A hooks-only/advisory repo runs recording + surfacing + deny-protection only — no auto-downgrade — until step 15 is wired (see § Upgrade Path). Consequently the step-15 adjudication CLI, the cumulative/emergency auto-downgrade paths, and the posture-engine fixtures named below describe the **full-enforcement upgrade target**, not current behavior here; the recording, banner, and deny-protection claims hold verbatim in both modes.
-
-This rule has two layers: a **behavioral contract** (what the agent MUST/MUST NOT do — live every session) and an **enforcement engine** (the mechanical layer that converts violations into posture changes). Here the recording, banner, and deny-protection layers are live; the adjudication/auto-downgrade layer is the full-enforcement upgrade above. This section states what the engine mechanically does so the rule neither over- nor under-claims (`rules/no-stubs.md` MUST §2).
+This repo runs the trust substrate in **full-enforcement** mode: recording + posture banner + deny-protection AND `/cc-audit` step-15 adjudication are all wired, so probe-CONFIRMED verdicts move posture. This rule has two layers: a **behavioral contract** (what the agent MUST/MUST NOT do — live every session) and an **enforcement engine** (the mechanical layer that converts violations into posture changes — live). This section states what the engine mechanically does so the rule neither over- nor under-claims (`rules/no-stubs.md` MUST §2).
 
 - **Recording:** `detect-violations.js` (via `lib/posture.js`) records each detected violation to `violations.jsonl` and mirrors it into `posture.json`. The engine (`lib/posture.js`, invoked by hooks or via its gate CLI) is the **sole** posture-state writer.
 - **Lexical hits stay advisory:** every shipped detector emits `severity: "warn"`, which the engine EXCLUDES from downgrade counting — consistent with `rules/probe-driven-verification.md` MUST §4 (a lexical match cannot, by itself, move trust). The probe verdict at the gate is what counts.
-- **Cumulative downgrade (full-enforcement only):** where `/cc-audit` step 15 is wired, it records each probe verdict via `node .claude/hooks/lib/posture.js adjudicate --ts <ts> --verdict confirmed|retired --probe <id> --by <gate>`; the engine annotates the entry with the structural `adjudicated:` marker and counts probe-CONFIRMED entries toward MUST §2's cumulative thresholds (one-level drop; entries consumed by a downgrade never count twice). In this hooks-only repo there is no step 15, so no probe verdicts are recorded and no cumulative auto-downgrade fires (per the mode guard).
-- **Emergency downgrade (full-enforcement only):** where step 15 is wired, a `regression_within_grace` recording drops one level instantly (MUST §3) and a confirmation carrying `--emergency destructive-op-unconfirmed|secret-leak|cross-repo-write-unauthorized` drops straight to `L1`. The drop machinery exists in `detect-violations.js`/`lib/posture.js`, but in hooks-only mode the shipped detectors all emit advisory `severity: "warn"` and no grace windows are registered, so these classes are recorded and surfaced without auto-moving posture (per the mode guard).
+- **Cumulative downgrade (live):** `/cc-audit` step 15 records each probe verdict via `node .claude/hooks/lib/posture.js adjudicate --ts <ts> --verdict confirmed|retired --probe <id> --by <gate>`; the engine annotates the entry with the structural `adjudicated:` marker and counts probe-CONFIRMED entries toward MUST §2's cumulative thresholds (one-level drop; entries consumed by a downgrade never count twice).
+- **Emergency downgrade (live):** a `regression_within_grace` recording drops one level instantly (MUST §3, wired in `detect-violations.js`); a confirmation carrying `--emergency destructive-op-unconfirmed|secret-leak|cross-repo-write-unauthorized` drops straight to `L1`.
 - **Banner + pruning (live):** `session-start.js` injects the posture banner (level, since, 30-day counts, active grace windows) into session context and prunes the `posture.json` mirror to the 30-day window. `violations.jsonl` — the durable audit log — is never pruned.
-- **Bash-write block (live):** `validate-bash-command.js` (`detectProtectedStateWrite`) denies write-shaped Bash commands targeting either state file AND interpreter inline-eval commands referencing the state surface, closing the loopholes MUST NOT §1 names; Edit/Write/MultiEdit remain denied by `settings.json` `permissions.deny`. The deny is lexical (see MUST NOT §1 for the honest scope). Bash state-write-deny fixtures: `.claude/audit-fixtures/validate-bash-command/` (present here); the step-15 posture-engine fixtures land only where full enforcement is wired.
-
-## Upgrade Path (hooks-only → full enforcement)
-
-This repo can be upgraded from hooks-only/advisory to full enforcement — the change that activates the auto-downgrade paths the § Enforcement Status mode guard scopes out. It is a human-gated architectural change (GATE-B, per repo), not an automatic consequence:
-
-1. Land the step-15 fixture suite under `.claude/audit-fixtures/`: the `posture-engine/` engine fixtures and the `violation-patterns/probes.md` probe contracts (the repo-agnostic `co-template-step15` bundle).
-2. Backport the `/cc-audit` step-15 adjudication section plus the three fixture runners.
-3. Switch each Layer-1 artifact's enforcement clause from the hooks-only guard to the full-enforcement branch (the mode guards in this rule, `repo-scope-discipline.md`, `hook-output-discipline.md`, `self-referential-codify.md`, and the `trust-posture/` skill).
-
-Once wired, the posture ladder auto-downgrades on probe-confirmed verdicts (MUST §2) and grace regressions fire instantly (MUST §3).
+- **Bash-write block (live):** `validate-bash-command.js` (`detectProtectedStateWrite`) denies write-shaped Bash commands targeting either state file AND interpreter inline-eval commands referencing the state surface, closing the loopholes MUST NOT §1 names; Edit/Write/MultiEdit remain denied by `settings.json` `permissions.deny`. The deny is lexical (see MUST NOT §1 for the honest scope). Engine fixtures: `.claude/audit-fixtures/posture-engine/run-fixtures.js`; Bash state-write-deny fixtures: `.claude/audit-fixtures/validate-bash-command/`.
 
 ## MUST Rules
 
@@ -78,7 +66,7 @@ Upgrade: human reviews the demonstrated correction and issues the challenge gate
 
 ### 2. Downgrade Triggers — Cumulative and Emergency
 
-`detect-violations.js` runs agnostic detectors and records each hit to `.claude/learning/violations.jsonl`. The two downgrade paths below are the **full-enforcement** triggers; in this hooks-only/advisory repo they are recorded and surfaced but do not auto-move posture until `/cc-audit` step 15 is wired (§ Enforcement Status mode guard). Two downgrade paths:
+`detect-violations.js` runs agnostic detectors and records each hit to `.claude/learning/violations.jsonl`. Two downgrade paths:
 
 **Cumulative (graceful):** 3× same-rule violations in a 30-day window → drop one level. 5× total violations in a 30-day window → drop one level.
 
@@ -100,7 +88,7 @@ is emergency-class — the cumulative path does not apply)
 
 ### 3. Freshly Codified Rules Get a Grace Period With Teeth
 
-When `/codify` lands a rule that addresses a detected or self-reported violation, that rule enters a grace window (default 7 days) recorded against `posture.json`. During grace, `detect-violations.js` runs the rule's detector in halt-and-report severity (not observer-only), and a violation of it fires `regression_within_grace` → emergency downgrade (MUST §2). The grace window MUST NOT be treated as a soft warmup during which the new rule is advisory. (Mode: the grace lifecycle — window registration via the `/codify` posture CLI plus the `regression_within_grace` auto-drop — runs in a full-enforcement repo; in this hooks-only/advisory repo no grace windows are registered and the auto-drop is part of the step-15 upgrade, so the behavioral contract — treat a freshly codified rule as maximally enforced — is honored by the agent and the gate reviewers until step 15 is wired. § Enforcement Status.)
+When `/codify` lands a rule that addresses a detected or self-reported violation, that rule enters a grace window (default 7 days) recorded against `posture.json`. During grace, `detect-violations.js` runs the rule's detector in halt-and-report severity (not observer-only), and a violation of it fires `regression_within_grace` → emergency downgrade (MUST §2). The grace window MUST NOT be treated as a soft warmup during which the new rule is advisory.
 
 ```markdown
 # DO — new rule has immediate teeth
@@ -158,4 +146,4 @@ inherits atelier's downgrade history it never earned.)
 
 - `.claude/commands/autonomize.md` — adopts the autonomous posture for a session; this rule sets the ceiling that posture runs under.
 - `.claude/rules/autonomous-execution.md` — the capacity model and structural-vs-execution gate distinction the posture ladder presupposes.
-- `.claude/hooks/detect-violations.js` (agnostic detectors + grace escalation), `.claude/hooks/session-start.js` (posture banner + mirror pruning), `.claude/hooks/lib/posture.js` (the engine + gate CLI), `.claude/hooks/validate-bash-command.js` (Bash-path state-write deny), `.claude/audit-fixtures/validate-bash-command/` + `.claude/audit-fixtures/violation-patterns/` (Bash-deny + detector fixtures; the step-15 posture-engine fixtures land only under full enforcement), `.claude/learning/posture.json` + `violations.jsonl` (the state surface), `.claude/settings.json` `permissions.deny` (the no-self-modify enforcement).
+- `.claude/hooks/detect-violations.js` (agnostic detectors + grace escalation), `.claude/hooks/session-start.js` (posture banner + mirror pruning), `.claude/hooks/lib/posture.js` (the engine + gate CLI), `.claude/hooks/validate-bash-command.js` (Bash-path state-write deny), `.claude/audit-fixtures/posture-engine/` (engine fixtures), `.claude/learning/posture.json` + `violations.jsonl` (the state surface), `.claude/settings.json` `permissions.deny` (the no-self-modify enforcement).
